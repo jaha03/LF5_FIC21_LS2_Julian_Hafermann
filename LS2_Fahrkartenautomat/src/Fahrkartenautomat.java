@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 // Hallo Welt
+// 2. Kommentar
 
 class Fahrkartenautomat {
 
