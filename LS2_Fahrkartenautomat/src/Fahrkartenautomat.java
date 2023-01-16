@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+// Hallo Welt
+
 class Fahrkartenautomat {
 
 	public static double fahrkartenbestellungErfassen() {
