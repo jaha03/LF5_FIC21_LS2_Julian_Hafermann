@@ -5,7 +5,7 @@ import java.util.Scanner;
 class Fahrkartenautomat {
 
 	public static double fahrkartenbestellungErfassen() {
-    double[] ticketpreise = {2.90, 3.30,3.60,1.90,8.60,9.00,9.60,23.50,24.30,24.90};   
+    double[] ticketpreise = {3,00, 3.50,3.80,2.00,8.60,9.20,10.00,9.40,12.60,13.80,25.50,26.00,26.50};   
     int[] anzahlTickets = new int[ticketpreise.length];
 
     double gesamtPreis = 0.0;
@@ -15,7 +15,7 @@ class Fahrkartenautomat {
     System.out.println(" Fahrkartenbestellvorgang:");
     System.out.println(" =========================");
     do {
-      auswahl = fahrkartenMenue();
+      auswahl = fahrkartenMenue(ticketpreise);
       
       if (auswahl == 0)
     	  for (int i=0 ; i < ticketpreise.length ; i++)
@@ -35,15 +35,18 @@ class Fahrkartenautomat {
       anzahlTickets[auswahl-1] += tastatur.nextInt();
   }
 
-	public static int fahrkartenMenue() {
+	public static int fahrkartenMenue(double[] ticketpreise ) {
         String[] eintraege = { "Einzelfahrschein Berlin AB ", 
         					   "Einzelfahrschein Berlin BC ", 
-        					   "Einzelfahrschein Berlin ABC",
-        					   "Kurzstrecke",
-        					   "Tageskarte Berlin AB",
-        					   "Tageskarte Berlin BC",
-        					   "Tageskarte Berlin ABC",
-        					   "Kleingruppen-Tageskarte Berlin AB",
+        					   "Einzelfahrschein Berlin ABC ",
+        					   "Kurzstrecke ",
+        					   "Tageskarte Berlin AB ",
+        					   "Tageskarte Berlin BC ",
+        					   "Tageskarte Berlin ABC ",
+        					   "4-Fahrten-Karte AB ",
+        					   "4-Fahrten-Karte BC ",
+        					   "4-Fahrten-Karte ABC ",
+        					   "Kleingruppen-Tageskarte Berlin AB ",
         					   "Kleingruppen-Tageskarte Berlin BC ",
         					   "Kleingruppen-Tageskarte Berlin ABC "
         					};
@@ -54,7 +57,7 @@ class Fahrkartenautomat {
     do {
       System.out.println("\n  Wählen Sie :");
       for (int i = 0; i < eintraege.length ; i++)
-        System.out.println("    "+eintraege[i]+" ("+ (i+1) + ")");  
+        System.out.printf("    %s[%.2f] (%d)\n", eintraege[i], ticketpreise[i], (i+1));  
       System.out.println("    Bezahlen (0)\n");
       System.out.print("  Ihre Wahl: ");
       auswahl = tastatur.nextInt();
